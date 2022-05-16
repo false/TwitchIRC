@@ -39,7 +39,7 @@ public enum OutgoingMessage {
         case let .nick(name):
             return "NICK \(name)"
         case let .capabilities(caps):
-            let capsString = caps.map(.twitchDescription).joined(separator: " ")
+            let capsString = caps.map($0.twitchDescription()).joined(separator: " ")
             return "CAP REQ :\(capsString)"
         case .ping:
             return "PING :tmi.twitch.tv"
